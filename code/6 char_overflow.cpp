@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+//using namespace std;
 
 #define s8 char
 static int k = 0;
@@ -13,7 +13,7 @@ int main()
 		k += i & 3;
 	}
 
-	cout << k << endl;
+	std::cout << k << std::endl;
 
 	return 0;
 }

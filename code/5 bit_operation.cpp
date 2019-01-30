@@ -1,10 +1,10 @@
 #include <iostream>
 //#include <cstdlib>
 #include <windows.h>
-using namespace std;
+//using namespace std;
 
 /*判断一个正整数num是否为2的N次方
-基本思想： 
+基本思想：
 
 十进制           二进制           N - 1           N & N - 1         是否为2的乘方
 8                 1000            111             0                 是
@@ -57,7 +57,7 @@ unsigned int NumberofOne(unsigned int num)
 	unsigned int count = 0;
 	while (num)
 	{
-		num = num & ( num - 1);
+		num = num & (num - 1);
 		count++;
 	}
 	return count;
@@ -67,16 +67,16 @@ int main()
 {
 	unsigned int m = 12, n = 32;
 
-	cout << m << "是否为2的N次方: " << Is2pow(m) << endl;
-	cout << n << "是否为2的N次方: " << Is2pow(n) << endl;
+	std::cout << m << "是否为2的N次方: " << Is2pow(m) << std::endl;
+	std::cout << n << "是否为2的N次方: " << Is2pow(n) << std::endl;
 
-	cout << "********************************************************" << endl;
+	std::cout << "********************************************************" << std::endl;
 
-	cout << m << "转化为二进制后，0的个数: " << NumberofZero(m) << endl;
+	std::cout << m << "转化为二进制后，0的个数: " << NumberofZero(m) << std::endl;
 
-	cout << "********************************************************" << endl;
+	std::cout << "********************************************************" << std::endl;
 
-	cout << n << "转化为二进制后，1的个数: " << NumberofOne(n) << endl;
+	std::cout << n << "转化为二进制后，1的个数: " << NumberofOne(n) << std::endl;
 
 	//让结果窗口暂停
 	//cin.get();
@@ -84,8 +84,8 @@ int main()
 	system("pause");
 	//Sleep(10000);   
 	/*      Windows下为--> windows.h       Linux 下为--> unistd.h
-		（1）Sleep是区分大小写的，有的编译器是大写，有的是小写
-		（2）Sleep括号里的时间，在windows下是已毫秒为单位，而Linux是以秒为单位*/
+	（1）Sleep是区分大小写的，有的编译器是大写，有的是小写
+	（2）Sleep括号里的时间，在windows下是已毫秒为单位，而Linux是以秒为单位*/
 	return 0;
 }
 

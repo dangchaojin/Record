@@ -1,5 +1,5 @@
 #include <iostream>
-using namespace std;
+//using namespace std;
 
 
 /*无需中间变量的交换两个数的其他方法*/
@@ -52,37 +52,37 @@ change3被调用时通过参数传递将change3的x和y初始化为main中x和y�
 int main()
 {
 	int mm = 11, nn = 22;
-	cout << "initial: " << mm << "	" << nn << endl;
+	std::cout << "initial: " << mm << "	" << nn << std::endl;
 	change1(mm, nn);
-	cout << "change1: " << mm << "	" << nn << endl;
-	cout << "*************************************************************" << endl;
+	std::cout << "change1: " << mm << "	" << nn << std::endl;
+	std::cout << "*************************************************************" << std::endl;
 
-	cout << "initia: " << mm << "	" << nn << endl;
+	std::cout << "initia: " << mm << "	" << nn << std::endl;
 	change2(&mm, &nn);
-	cout << "change2: " << mm << "	" << nn << endl;
-	cout << "*************************************************************" << endl;
+	std::cout << "change2: " << mm << "	" << nn << std::endl;
+	std::cout << "*************************************************************" << std::endl;
 
-	cout << "initial: " << mm << "	" << nn << endl;
+	std::cout << "initial: " << mm << "	" << nn << std::endl;
 	change3(mm, nn);
-	cout << "change3: " << mm << "	" << nn << endl;
-	cout << "*************************************************************" << endl;
+	std::cout << "change3: " << mm << "	" << nn << std::endl;
+	std::cout << "*************************************************************" << std::endl;
 
 	int x = 6, y = 5;
-	cout << "initial: " << x << "	" << y << endl;
+	std::cout << "initial: " << x << "	" << y << std::endl;
 	swap11_sub(x, y);
-	cout << "swap11_sub: " << x << "	" << y << endl;
-	cout << "*************************************************************" << endl;
+	std::cout << "swap11_sub: " << x << "	" << y << std::endl;
+	std::cout << "*************************************************************" << std::endl;
 
 	int a = 8, b = 7;
-	cout << "initial: " << a << "	" << b << endl;
+	std::cout << "initial: " << a << "	" << b << std::endl;
 	swap22_XOR(a, b);
-	cout << "swap22_XOR: " << a << "	" << b << endl;
-	cout << "*************************************************************" << endl;
+	std::cout << "swap22_XOR: " << a << "	" << b << std::endl;
+	std::cout << "*************************************************************" << std::endl;
 
 	int m = 21, n = 22;
-	cout << "initial: " << m << "	" << n << endl;
+	std::cout << "initial: " << m << "	" << n << std::endl;
 	swap33(m, n);
-	cout << "awap33(false): " << m << "	" << n << endl;
+	std::cout << "awap33(false): " << m << "	" << n << std::endl;
 
 	system("pause");
 	return 0;

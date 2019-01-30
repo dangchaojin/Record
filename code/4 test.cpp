@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
-using namespace std;
+//using namespace std;
 
 typedef unsigned int UINT;
-vector<UINT> vec;
+std::vector<UINT> vec;
 UINT result = 20;
 int main()
 {
@@ -13,6 +13,6 @@ int main()
 		vec.push_back(i);
 	}
 
-	cout << result << endl;
+	std::cout << result << std::endl;
 	return 0;
 }
