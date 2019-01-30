@@ -1,2 +1,11 @@
 *.log
 *.dsp
+*.ncb
+*.plg
+Debug/
+#/code/*.log
+#/code/*.dsp
+#/code/*.ncb
+#/code/*.plg
+#/code/Debug/
+!/code/*.cpp
