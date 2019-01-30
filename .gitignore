@@ -2,10 +2,13 @@
 *.dsp
 *.ncb
 *.plg
+*.dsw
+*.opt
 Debug/
 #/code/*.log
 #/code/*.dsp
 #/code/*.ncb
 #/code/*.plg
 #/code/Debug/
+/code
 !/code/*.cpp
