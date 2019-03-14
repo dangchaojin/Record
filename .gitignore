@@ -4,11 +4,13 @@
 *.plg
 *.dsw
 *.opt
-Debug/
+/Debug/
+/code/*
+!/code/*.cpp
+
 #/code/*.log
 #/code/*.dsp
 #/code/*.ncb
 #/code/*.plg
 #/code/Debug/
-/code
-!/code/*.cpp
+#  #号为注释
