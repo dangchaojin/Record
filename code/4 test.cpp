@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-//using namespace std;
 
 typedef unsigned int UINT;
 std::vector<UINT> vec;

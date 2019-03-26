@@ -1,12 +1,9 @@
-*.log
-*.dsp
-*.ncb
-*.plg
-*.dsw
-*.opt
-/Debug/
-/code/*
+﻿/code/*
 !/code/*.cpp
+/rule/*
+!/rule/*.vcxproj
+!/rule/*.h
+!/rule/*.cpp
 
 #/code/*.log
 #/code/*.dsp
@@ -14,3 +11,11 @@
 #/code/*.plg
 #/code/Debug/
 #  #号为注释
+
+/Debug/
+*.log
+*.dsp
+*.ncb
+*.plg
+*.dsw
+*.opt
