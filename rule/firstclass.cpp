@@ -1,21 +1,27 @@
 #include "firstclass.h"
 //先主函数再子函数，先进程主体继之进程分支再各过程，由大到小的顺序排版
 //类的实现部分应按照先构造/析构函数，再公用函数，最后私有函数的顺序排版
-FirstClass::FirstClass(int pNum)
-{
-	//m_num = pNum;
-}
-//sizeof来确定数组、结构、联合或变量占用的空间
 
 FirstClass::FirstClass()
 {
 	//
 }
 
+//sizeof来确定数组、结构、联合或变量占用的空间
+FirstClass::FirstClass(int pNum)
+{
+	//m_num = pNum;
+}
+
+//拷贝构造函数的定义
+FirstClass::FirstClass( const FirstClass& CopyTarget)
+{
+	m_num = CopyTarget.m_num;
+}
 
 FirstClass::~FirstClass()
 {
-	//
+	//delete[] pBuffer;
 }
 
 //对代码的注释应放在其上方或右方（对单条语句的注释）相邻位置，不可放在下面
@@ -32,4 +38,9 @@ void FirstClass::DisplayOfIf()
 	{
 		//
 	}
+}
+
+void Showlog()
+{
+	std::cout << "logloglogloglog" << std::endl;
 }
