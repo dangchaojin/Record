@@ -1,5 +1,6 @@
 #include <iostream>
 //使用define要注意的地方!!!
+
 #define pin int*
 //#define pin (int*)   这样写不可以??
 

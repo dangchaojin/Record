@@ -12,11 +12,11 @@ class FirstClass   //类名采用大小写结合的方法，不同单词之间�
 //变量要求先公有，再保护，后私有的顺序
 public:
     //缺省构造函数
-	FirstClass();
+	//FirstClass();
 	//构造函数
 	FirstClass(int pNum );
 	//拷贝构造函数（后续实现）
-	FirstClass( const FirstClass& );
+	//FirstClass( const FirstClass& );
 	~FirstClass();
 	
 	void Show();           //函数名一般采用大小写字母结合的形式
@@ -27,14 +27,20 @@ protected:
 private:
 
 
-public:   //以下为变量
+//以下为变量
+public:
 
 protected:
 
 private:
+	unsigned int unsignedint = 12;
     int m_num;    //类的成员变量统一在前面加m_前缀（member）
 	//char* pBuffer;
 };
+
+
+
+
 
 
 /*=============================================================================
