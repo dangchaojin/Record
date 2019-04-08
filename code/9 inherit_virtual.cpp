@@ -1,5 +1,14 @@
-//虚函数的作用就是实现多态性;  多态性是将接口域实现经行分离;
-//关键：用指向基类的指针或引用操作对象
+//虚函数的作用就是实现多态性;  多态性是将接口与实现进行分离;
+//关键：<<用指向基类的指针或引用操作对象>>
+
+//纯虚函数：一种特殊的虚函数，在许多情况下，在基类中不能对虚函
+//数给出有意义的实现，它的实现留给该基类的派生类去做。方便使用多态特性
+
+//多态性：相同对象收到不同消息或不同对象收到相同消息时产生不同的实现动作。
+//C++支持两种多态性：编译时多态性，运行时多态性。
+//a.编译时多态性：通过重载函数和运算符重载实现。 b运行时多态性：通过虚函数和继承实现。
+
+//抽象类：包含纯虚函数的类。由于抽象类包含了没有定义的纯虚函数，所以不能定义抽象类的对象！！！
 #include <iostream>
 
 class A
@@ -11,6 +20,8 @@ public:
 
 	//把基类的成员函数设为virtual,其派生类的相应的函数也会自动变为虚函数
 	virtual void print() { std::cout << "<print> this is A." << std::endl; }
+	
+	//virtual void chunxuhanshu() = 0;     //“A” : 不能实例化抽象类
 
 	virtual void fun(){ std::cout << "A::fun" << std::endl; }
 	virtual void fun2(){ std::cout << "A::fun2" << std::endl; }
@@ -27,6 +38,20 @@ public:
 	
 	void fun(){ std::cout << "B::fun" << std::endl;}
 	void fun2(){ std::cout << "B::fun2" << std::endl;}
+};
+
+class C
+{
+	C() {}
+	virtual ~C() {}
+	virtual void chunxuhanshu() = 0;
+};
+
+class D
+{
+	D() {}
+	~D() {}
+	void chunxuhanshu() { std::cout << "chunxuhanshushixian." << std::endl; }
 };
 
 int main()
