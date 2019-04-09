@@ -34,7 +34,7 @@ void FirstClass::Show()
 	std::cout << sizeof(unsignedint) << std::endl;
 	std::cout << typeid(unsignedint).name() << std::endl;      //C++输出变量的类型
 
-	//
+	return;    //这样也可以,不要这一句也可以！！！！
 }
 
 void FirstClass::DisplayOfIf()
@@ -45,10 +45,12 @@ void FirstClass::DisplayOfIf()
 	{
 		//
 	}
-	return;
+	return;        //这样也可以,不要这一句也可以！！！！
 }
 
 void Showlog()
 {
 	std::cout << "logloglogloglog" << std::endl;
+	
+	return;        //这样也可以,不要这一句也可以！！！！
 }
