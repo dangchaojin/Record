@@ -19,6 +19,8 @@ public:
 	//FirstClass( const FirstClass& );
 	virtual ~FirstClass();         //优秀的程序员常常把基类的析构函数定义为虚函数!!!!!!
 	
+	const FirstClass& operator=( const FirstClass& firstClass );
+	
 	virtual void Show();           //函数名一般采用大小写字母结合的形式
 	void DisplayOfIf();    //函数名的首字母一般情况下建议大写
 	
