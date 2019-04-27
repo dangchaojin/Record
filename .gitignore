@@ -4,6 +4,7 @@
 !/rule/*.vcxproj
 !/rule/*.h
 !/rule/*.cpp
+!/rule/*.txt
 
 #/code/*.log
 #/code/*.dsp
