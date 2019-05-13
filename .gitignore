@@ -1,17 +1,18 @@
 ﻿/code/*
 !/code/*.cpp
-/rule/*
-!/rule/*.vcxproj
-!/rule/*.h
-!/rule/*.cpp
-!/rule/*.txt
+!/code/rule
+/code/rule/*
+!/code/rule/*.vcxproj
+!/code/rule/*.h
+!/code/rule/*.cpp
+!/code/rule/*.txt
 
 #/code/*.log
 #/code/*.dsp
 #/code/*.ncb
 #/code/*.plg
 #/code/Debug/
-#  #号为注释
+#     #号为注释
 
 /Debug/
 *.log
