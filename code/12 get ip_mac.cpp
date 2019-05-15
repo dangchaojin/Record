@@ -13,17 +13,21 @@ int main()
 
     char* command1 = (char*)"ifconfig eth0 | grep 'inet'";
     char* command2 = (char*)"ifconfig eth0 | grep 'ether'";
+
     fpRead = popen(command2, "r");
     fgets(tmpbuf, 64, fpRead);
     if(fpRead != NULL)
         pclose(fpRead);
+
     renewCh = strstr(tmpbuf, "ether");
     if(renewCh)
     {
         strncpy(myip, renewCh + sizeof("ether")-1, 48);
         myip[48] = '\0';
     }
+
     std::cout << "------eth0 ether = " << myip << std::endl; 
 
     return 0;
 }
+
