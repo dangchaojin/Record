@@ -1,5 +1,6 @@
 ﻿/code/*
 !/code/*.cpp
+!/code/*.docx
 !/code/rule
 /code/rule/*
 !/code/rule/*.vcxproj
