@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <cstring>     //strlen所在头文件  ubuntu里string.h也可以，string不可以
+#include <cstring>
 #include <iomanip>
 #include <stdlib.h>   //molloc所在头文件  后可用new申请空间
 #include "openssl/md5.h"
@@ -70,10 +70,11 @@ unsigned char *MD5(const unsigned char *d, size_t n, unsigned char *md);
 #define MAXDATABUFF 1024
 #define MD5LENTH 16
 
-int main(int arc,char *arv[])
+int main(int arc, char *arv[])
 {
-    string strFilePath = arv[1];
-    ifstream ifile(strFilePath.c_str(),ios::in|ios::binary);    //打开文件
+    //string、ifstream、ios均是在std中
+    std::string strFilePath = arv[1];
+    std::ifstream ifile(strFilePath.c_str(),std::ios::in|std::ios::binary);    //打开文件
     unsigned char MD5result[MD5LENTH];
     do
     {
@@ -96,16 +97,16 @@ int main(int arc,char *arv[])
             }
         }
         MD5_Final(MD5result,&md5_ctx);  //获取MD5
-        cout<<"file MD5:"<<endl;
+        std::cout<<"file MD5:"<<std::endl;
         for(int i = 0; i < MD5LENTH; i++)  //将MD5以16进制输出
-            std::cout << hex << (int)MD5result[i];
+            std::cout << std::hex << (int)MD5result[i];          //hex是在标准库中
         std::cout << std::endl;
     }while(false); 
     
     MD5((const unsigned char*)strFilePath.c_str(),strFilePath.size(),MD5result);    //获取字符串MD5
     std::cout << "string MD5:" << std::endl;
     for(int i = 0; i < MD5LENTH; i++)
-        std::cout << hex << (int)MD5result[i];
+        std::cout << std::hex << (int)MD5result[i];
     std::cout << std::endl;
     return 0;
 }
