@@ -395,6 +395,7 @@ new[]/delete[]：在开辟大小会多开辟四个字节，用于存放对象的
 参考：https://blog.csdn.net/weibo1230123/article/details/81980889                
 
 
+构造函数与析构函数都是公有函数？因为不是公有函数类外访问不到！
 
 拷贝构造函数参考：https://www.cnblogs.com/alantu2018/p/8459250.html
 有拷贝构造函数前提：
