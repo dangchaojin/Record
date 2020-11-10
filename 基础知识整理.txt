@@ -199,7 +199,7 @@ boolean：1字节。boolean类型与其他基本类型不能进行类型的转�
 当对小于int的数据类型（byte, char, short）进行运算时，首先会把这些类型的变量值强制转为int类型进行计算，最后会得到int类型的值。因此，如果把2个short类型的值相加，最后得到的结果是int类型，如果需要得到short类型的结果，就必须显示地运算结果转为short类型。
 
 
-15、类与结构体   结构体跟联合体
+15、类class与结构体struct   结构体struct跟联合体union
 类中定义的继承和成员变量、成员函数默认都是private属性的，结构体中定义的继承和成员变量、成员函数默认都是public属性的。
 
 struct各成员各自拥有自己的内存，各自使用互不干涉，同时存在的，遵循内存对齐原则。一个struct变量的总长度等于所有成员的长度之和。
@@ -258,7 +258,7 @@ c、UDP具有较好的实时性，工作效率比TCP高，适用于对高速传�
 d、每一条TCP连接只能是点到点的；UDP支持一对一、一对多、多对一和多对多的交互通信。
 e、TCP对系统资源要求较多，UDP对系统资源要求较少。
 
-三次握手                                 SYN：同步序列编号（Synchronize Sequence Numbers）。
+三次握手                       SYN：同步序列编号（Synchronize Sequence Numbers）。
 第一次握手：建立连接时，客户端发送syn包（seq=j）到服务器，并进入SYN_SENT状态，等待服务器确认；
 第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（seq=k），即SYN+ACK包，此时服务器进入SYN_RECV状态。
 第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。
