@@ -38,14 +38,14 @@ b.malloc/free为C的标准库函数，new/delete则为C++的操作运算符，�
 c.malloc返回类型为void*，必须强制类型转换对应类型指针，new则直接返回对应类型指针；
 d.malloc开辟的内存永远是通过free来释放的；而new单个元素内存，用的是delete，如果new[]数组，用的是delete[]来释放内存的。
 e.malloc开辟内存时返回内存地址要检查判空，因为若它可能开辟失败会返回NULL；new则不用判断，因为内存分配失败时，它会抛出异常bac_alloc,可以使用异常机制；
-f.malloc开辟空间类型大小需手动计算，new是由编译器自己计算；
+f.malloc开辟空间类型大小需手动计算，new是由编译器自己计算（new分配内存按照数据类型进行分配，malloc分配内存按照大小分配）；
 g.new/delete底层是基于malloc/free来实现的；
 h.new/delete是操作符，它调用operator new / operator delete,它们可以被重载，在标准库里它有8个重载版本；而malloc/free不可以重载；
 i.对于malloc分配内存后，若在使用过程中内存分配不够或太多，这时可以使用realloc函数对其进行扩充或缩小，但是new分配好的内存不能这样被直观简单的改变；
 j.malloc是在堆上分配内存的，new相当于也是在堆上开辟内存的
 
 
-6、内存中的几个区域
+6、C++内存中的几个区域
 a、栈区（stack）：由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。
 b、堆区（heap）：一般由程序员分配释放，若程序员不释放，程序结束时可能由OS回收。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。
 c、全局/静态区(static）：全局变量和静态变量的存储是 放在一块的，在程序编译时分配
@@ -345,7 +345,7 @@ char *my_strcpy(char* dst, const char* src)
 	return temp;
 }
 
-
+https://blog.csdn.net/qq_42627619/article/details/91046831
 冒泡排序、快速排序、二分查找
 设计栈  入栈  出栈  找最小元素
 设计string  成员
@@ -354,7 +354,7 @@ char *my_strcpy(char* dst, const char* src)
 创建一个二叉树，插入是个数据
 通用二元一次方程函数
 图像边缘检测原理
-STL里面vector、list、map、set底层数据结构   以及应用场景
+c++的STL中，有哪几种容器？  STL里面vector、list、map、set底层数据结构   以及应用场景
 查询多，插入少  用什么？为什么？
 
 
@@ -364,7 +364,7 @@ STL里面vector、list、map、set底层数据结构   以及应用场景
 
 
 
-整理下  a++，++a  ???
+整理下  a++，++a  ???      //i++和++i的区别:  i++是先用后加，直接执行i+1然后返回i的引用 ++i是先加后用，先创建i的副本然后i+1，最后返回副本  ???
 #include <stdio.h>
 #include <iostream>
 using namespace std;
