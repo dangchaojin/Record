@@ -286,6 +286,9 @@ c）了解对应的执行环境，硬件差异，系统差异，比如说CPU的�
 d）如果性能相差很多，很可能问题出现在算法上面。就像冒泡排序和快速排序的差距。了解是否有更加合适的算法，一般来说拿空间换时间，或者拿准确度来换时间
 
 
+https://blog.csdn.net/N1314N/article/details/94652368?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
+
+
 、学到了啥？  下一步规划
 
 、C11的特性（智能指针、anto等等）
