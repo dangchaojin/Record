@@ -335,9 +335,9 @@ c、
 、算法题：
 
 mencpy函数实现
-void * my_mencpy(void *dst, void *src, unsigned count)
+void * my_mencpy(void *dst, const void *src, unsigned count)
 {
-	if(dst == NULL || src == NULL) return NULL;
+	if(dst == nullptr || src == nullptr) return nullptr;
 	char *pdst = (char*)dst;
 	char *psrc = (char*)src;
 	while(count--)
@@ -351,7 +351,7 @@ void * my_mencpy(void *dst, void *src, unsigned count)
 strcpy函数实现
 char *my_strcpy(char* dst, const char* src)
 {
-	if(dst == NULL || src == NULL) return NULL;
+	if(dst == nullptr || src == nullptr) return nullptr;
 	char* temp = dst;
 	while( (*dst++ = *src++) != '\0' ) ;
 	return temp;
