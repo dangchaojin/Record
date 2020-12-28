@@ -1,7 +1,7 @@
 
 
 *****************************************************************************************************************************************************************
-****************************************************             以下是对上面知识点的扩展                 *******************************************************
+****************************************************             以下是对基础知识整理文件中的扩展                 *******************************************************
 *****************************************************************************************************************************************************************
 
 static作用                   可参考：https://www.cnblogs.com/xuecl/p/12880968.html        https://www.cnblogs.com/songdanzju/p/7422380.html
@@ -178,3 +178,51 @@ virtual 函数返回值类型虚函数名（形参表）{ 函数体 }
 析构函数可以是虚函数，而且通常声明为虚函数。
 
 
+
+
+
+指针函数与函数指针       https://www.cnblogs.com/nevel/p/6370264.html
+编程实例:
+#include <iostream>
+using namespace std;
+
+/*int (*ptr1) (int a, int b);
+int (*ptr2) (int c, int d);
+int (*ptr3) (int e, int f);
+int (*ptr4) (int g, int h);*/
+
+int func(int aa, int bb);
+
+int main()
+{
+    int (*ptr1) (int a, int b);
+    int (*ptr2) (int c, int d);
+    int (*ptr3) (int e, int f);
+    int (*ptr4) (int g, int h);
+
+    int value1 = 0, value2 = 0, value3 = 0, value4 = 0;
+
+    //取地址运算符&不是必需的，因为单单一个函数标识符就标号表示了它的地址，如果是函数调用，还必须包含一个圆括号括起来的参数表。
+    ptr1 = func;
+    value1 = (*ptr1)(2, 4);
+    ptr2 = func;
+    value2 = ptr2(2, 4);
+    ptr3 = &func;
+    value3 = (*ptr3)(2, 4);
+    ptr4 = &func;
+    value4 = ptr4(2, 4);
+
+    cout << value1 << endl;
+    cout << value2 << endl;
+    cout << value3 << endl;
+    cout << value4 << endl;
+
+    return 0;
+}
+
+int func(int aa, int bb)
+{
+    int cc = 0;
+    cc = aa + bb;
+    return cc;
+}
