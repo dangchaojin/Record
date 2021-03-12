@@ -49,7 +49,7 @@ j.malloc是在堆上分配内存的，new相当于也是在堆上开辟内存的
 a、栈区（stack）：由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。
 b、堆区（heap）：一般由程序员分配释放，若程序员不释放，程序结束时可能由OS回收。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。
 c、全局/静态区(static）：全局变量和静态变量的存储是 放在一块的，在程序编译时分配
-d、文字常量区：存放常量字符串
+d、文字常量区：存放常量字符串（这个区域是由系统分配释放？不能由程序员释放？）
 e、程序代码区：存放函数体(类的成员函数、全局函数)的二进制代码
 
 c中全局变量分初始化和未初始化，初始化的放在.data段，未初始化的放在.bss段，在C++里则不区分。
@@ -415,12 +415,18 @@ b、针对大的输入量，cin、cout效率比scanf、printf的效率低很多
     输出速度：在C++中测试puts()和putchar()是最快的，printf();是第二，最后是cout
     解决方法一：使用以下操作取消兼容，提高速度
     std::ios::sync_with_stdio(0);cout.tie(0);（注意使用了之后，printf和cout不用混用，否则可能出现顺序错乱）
-c、
+c、new了就要记得delete
+   malloc了就要记得free（free时需检查指针是否为空，虽然c++标准允许delete空指针，但是有判空且指针为空时，判空的代码的汇编指令较少; 且delete后赋空）
+   open了就要记得close
+   add了就要记得remove
+d、不要把全局变量以及全局方法的定义放在头文件里！
+e、使用memcpy之前先把目标清0！（如memcpy前没清0，赋值时只赋一部分，可能会造成有一部分脏数据或者数据残留）
 
 
 、this指针的作用
 
 、讲一下堆与找的区别与联系（内存分配Heap和stack的区别）
+堆、栈的生长方向，结合上面大小端知识点记录
 为啥malloc申请到的堆的空间是连续的？   是因为前面有个空间存储了长度？
 
 
@@ -441,7 +447,7 @@ c、
 
 、linux常用命令
     linux怎么看进程下面的线程
-    高效地在linux查找：find找文件    grep根据文件内容查找    which查看可执行文件位置    whereis寻找特定文件    locate配合数据库查看文件位置？？
+    高效地在linux查找：find找文件    grep根据文件内容查找    which查看可执行文件位置    whereis寻找特定文件    locate配合数据库查看文件位置？？（查找文件安装路径？）
     nm  objdump  readelf
 
 、算法题：
@@ -480,9 +486,22 @@ https://blog.csdn.net/qq_42627619/article/details/91046831
 通用二元一次方程函数
 图像边缘检测原理
 c++的STL中，有哪几种容器？  STL里面vector（数组）、list（双向链表）、map、set数据结构以及底层实现   以及应用场景
+vector可先用resize申请空间，不用等到要用时由自身申请（速度慢）
 查询多，插入少  用什么？为什么？
 通信、linux系统编程
+联系使用ifstream、stringstream
 socket通信（了解：127.0.0.1::port1能不能与127.0.0.1::port2建链）
+子进程与父进程（fock函数启动一个新的进程，这个进程几乎是当前进程的一个拷贝：子进程和父进程使用相同的代码段；子进程复制父进程的堆栈段和数据段）（函数簇exec用来启动另外的进程以取代当前运行的进程，对当前进程进行替换。）
+
+数据库的使用（truncate仅删数据不删表）
+
+class Win1:public QMainWindow{
+private:
+	Win2 *win2Inst;
+}
+question：怎么知道Win1是否new过Win2？
+构造函数里：win2Inst=nullptr；以后检车win2Inst==nullptr就知道有没有new过。
+
 
 
 逻辑题:
@@ -528,3 +547,13 @@ int main(int argc,char *argv[])
 	printf("%d %d %d \n",i*=2,++i,i++);
 	return 0;
 }
+
+
+define后面没有;     typedef后面有;
+
+#define pin (int *)
+pin a, b;
+本意是a和b都是int型的指针，但是实际上变成 int *a，b;(变成a是int型指针，而b是int型变量)
+这里应该使用typedef来代替define，这样a和b就都是int型指针了。即：
+typedef pin (int *);
+pin a, b;
