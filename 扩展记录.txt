@@ -226,3 +226,25 @@ int func(int aa, int bb)
     cc = aa + bb;
     return cc;
 }
+
+
+const和#define的区别:
+void fun1()
+{
+    #define a 10
+    const int b = 20;
+    //#undef a  # undef
+}
+
+void fun2()
+{
+    printf("a = %d\n", a);
+    //printf("b = %d\n", b);
+}
+
+int main()
+{
+    fun1();
+    fun2();
+    return 0;
+}
