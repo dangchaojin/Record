@@ -1,6 +1,4 @@
-
-
-mencpy函数实现
+1、mencpy函数实现
 void * my_mencpy(void *dst, const void *src, unsigned count)
 {
 	if(dst == nullptr || src == nullptr) return nullptr;
@@ -13,7 +11,7 @@ void * my_mencpy(void *dst, const void *src, unsigned count)
 	return dst;
 }
 
-strcpy函数实现
+2、strcpy函数实现
 char *my_strcpy(char* dst, const char* src)
 {
 	if(dst == nullptr || src == nullptr) return nullptr;
@@ -22,16 +20,48 @@ char *my_strcpy(char* dst, const char* src)
 	return temp;
 }
 
-https://blog.csdn.net/qq_42627619/article/details/91046831
-冒泡排序、快速排序、二分查找
+3、冒泡排序         // https://www.cnblogs.com/bigdata-stone/p/10464243.html
+原理：比较两个相邻的元素（两两相比），将值大的元素交换到右边
+N个数字要排序完成，总共进行N-1趟排序，第i趟的排序次数为(N-i)次，所以可以用双重循环语句，外层控制循环多少趟，内层控制每一趟的循环次数
+每进行一趟排序，就会少比较一次，因为每进行一趟排序都会找出一个较大值。如上例：第一趟比较之后，排在最后的一个数一定是最大的一个数，第二趟排序的时候，只需要比较除了最后一个数以外的其他的数，同样也能找出一个最大的数排在参与第二趟比较的数后面，第三趟比较的时候，只需要比较除了最后两个数以外的其他的数，以此类推……也就是说，没进行一趟比较，每一趟少比较一次，一定程度上减少了算法的量。
+
+for(int i = 0; i < n-1; i++){      //控制外循环，总共进行N-1趟排序
+	for(int j = 0; j < n-1-i; j++){   //内层控制每一趟的循环次数（同一行里的比较次数）
+		if(a[j] > a[j+1]){        //注意：是同一行里的两两比较
+			temp = a[j];
+			a[j] = a[j+1];
+			a[j+1] = temp;
+		}
+	}
+}
+
+原理：一个位置依次与其他位置的元素比较，将值大的元素交换到右边
+for(int i = 0; i < n -1; i++) {
+    for(int j = i + 1; j < n; j++) {
+        if(a[i] > a[j]) {
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+    }
+}
+
+4、快速排序
+
+5、二分查找
+
+6、创建一个单向链表，插入十个数据
+
+7、创建一个二叉树，插入十个数据
+
+8、创建一个检查某个词是否回文的函数
+
+9、通用二元一次方程函数（模板？）
+
 设计栈  入栈  出栈  找最小元素
 设计string  成员
 编写简单的回显函数
-创建一个单向链表，插入十个数据
-创建一个二叉树，插入是个数据
 写一个判定任意二进制树height的程序
-创建一个检查某个词是否回文的函数
-通用二元一次方程函数
 图像边缘检测原理
 c++的STL中，有哪几种容器？  STL里面vector（数组）、list（双向链表）、map、set数据结构以及底层实现   以及应用场景
 vector可先用resize申请空间，不用等到要用时由自身申请（速度慢）
