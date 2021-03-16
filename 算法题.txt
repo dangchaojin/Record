@@ -1,0 +1,97 @@
+
+
+mencpy函数实现
+void * my_mencpy(void *dst, const void *src, unsigned count)
+{
+	if(dst == nullptr || src == nullptr) return nullptr;
+	char *pdst = (char*)dst;
+	char *psrc = (char*)src;
+	while(count--)
+	{
+		*pdst++ = *psrc++;
+	}
+	return dst;
+}
+
+strcpy函数实现
+char *my_strcpy(char* dst, const char* src)
+{
+	if(dst == nullptr || src == nullptr) return nullptr;
+	char* temp = dst;
+	while( (*dst++ = *src++) != '\0' ) ;
+	return temp;
+}
+
+https://blog.csdn.net/qq_42627619/article/details/91046831
+冒泡排序、快速排序、二分查找
+设计栈  入栈  出栈  找最小元素
+设计string  成员
+编写简单的回显函数
+创建一个单向链表，插入十个数据
+创建一个二叉树，插入是个数据
+写一个判定任意二进制树height的程序
+创建一个检查某个词是否回文的函数
+通用二元一次方程函数
+图像边缘检测原理
+c++的STL中，有哪几种容器？  STL里面vector（数组）、list（双向链表）、map、set数据结构以及底层实现   以及应用场景
+vector可先用resize申请空间，不用等到要用时由自身申请（速度慢）
+查询多，插入少  用什么？为什么？
+通信、linux系统编程
+联系使用ifstream、stringstream
+socket通信（了解：127.0.0.1::port1能不能与127.0.0.1::port2建链）
+子进程与父进程（fock函数启动一个新的进程，这个进程几乎是当前进程的一个拷贝：子进程和父进程使用相同的代码段；子进程复制父进程的堆栈段和数据段）（函数簇exec用来启动另外的进程以取代当前运行的进程，对当前进程进行替换。）
+
+数据库的使用（truncate仅删数据不删表）
+
+class Win1:public QMainWindow{
+private:
+	Win2 *win2Inst;
+}
+question：怎么知道Win1是否new过Win2？
+构造函数里：win2Inst=nullptr；以后检车win2Inst==nullptr就知道有没有new过。
+
+
+
+逻辑题:
+、从一副牌中抽取两张，同一花色地出现概率是多少？
+
+
+
+编程实现从 1 加到 100 和从 100 加到 1 两个程序，哪个更快？    参考：https://www.zhihu.com/question/316554171
+开编译器优化的情况：编译器直接算出结果5050（测试过是有一定范围的，算1到100000时就是：1加到n比n加到1多一个cmp指令）
+不开编译器优化的情况：时操指令数量上没啥差别（并没有出现网上说的，100加到1有出现jnz指令，然后jnz指令要明显快于cmp之后再jne）
+
+
+
+
+
+以下需要联系运算符优先级学习，比如   int i=1，j=2，求表达式i+++j的值？
+
+整理下  a++，++a  ???      //i++和++i的区别:  i++是先用后加，直接执行i+1然后返回i的引用 ++i是先加后用，先创建i的副本然后i+1，最后返回副本  ???
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+#define MU(a) ((a)*(a)*(a))
+int main(int argc,char *argv[])
+{
+	int i = 10;
+	/*int Sum = Add(i);
+	printf("sUM1 = %d\n",Sum);
+	int sum = MU(++i);
+	printf("i = %d MU = %d\n",i,sum);*/
+
+	printf("%d %d %d %d\n", ++i,i++,i++,i++);
+	i = 10;
+	//printf("%p %p %p\n", i++,++i,i);
+	printf("%d\n",i);
+	printf("%d %d %d %d\n", i,i,i++,i++);
+	i = 10;
+	printf("%d %d\n", i++,i++);
+	i = 10;
+	printf("%d %d\n", ++i,++i);
+	i = 10;
+	cout<<++i<<","<<i++<<endl;
+	i = 2;
+	printf("%d %d %d \n",i*=2,++i,i++);
+	return 0;
+}
