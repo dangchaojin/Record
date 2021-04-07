@@ -80,6 +80,36 @@ private:
 question：怎么知道Win1是否new过Win2？
 构造函数里：win2Inst=nullptr；以后检车win2Inst==nullptr就知道有没有new过。
 
+文件：
+#include <iostream>
+using namespace std;
+#include "fstream"
+int main()
+{
+	char fileName[80];
+	char buffer[255];
+
+	cout << "请输入一个文件名: ";
+	cin >> fileName;
+
+	ofstream fout(fileName, ios::app);
+	fout << "1111111111111111111\n";
+	fout << "22222222222222222\n";
+	cin.getline(buffer,255); //从键盘输入
+	fout << buffer << "\n";
+	fout.close();
+
+	ifstream fin(fileName);
+	cout << "Here's the the content of the file: \n";
+	char ch;
+	while(fin.get(ch))
+		cout << ch;
+
+	cout << "\n***End of file contents.***\n";
+	fin.close();
+	system("pause");
+	return 0;
+}
 
 
 逻辑题:
