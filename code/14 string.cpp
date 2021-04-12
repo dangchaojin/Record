@@ -27,6 +27,7 @@ int main()
         p = strtok(NULL, " ");
     }
 	
+	//按特定字符分割3_1:(需要使用string.h)
 	std::string str("dasfafasdd asd as asd c");
 	std::string delim(" ");
 	std::vector<std::string> res;
@@ -47,6 +48,7 @@ int main()
 	}
 	delete strs;
 	delete d;
+	
 	
 	//
 	std::string findStr("112,119,,,110");

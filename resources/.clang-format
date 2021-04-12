@@ -23,9 +23,9 @@ AlignTrailingComments: false
 # 允许函数声明的所有参数在放在下一行
 AllowAllParametersOfDeclarationOnNextLine:	false
 # 允许短的块放在同一行
-AllowShortBlocksOnASingleLine:	true
+AllowShortBlocksOnASingleLine:	false
 # 允许短的case标签放在同一行
-AllowShortCaseLabelsOnASingleLine:	true
+AllowShortCaseLabelsOnASingleLine:	false
 # 允许短的函数放在同一行: None, InlineOnly(定义在类中), Empty(空函数), Inline(定义在类中，空函数), All
 AllowShortFunctionsOnASingleLine:	Empty
 # 允许短的if语句保持在同一行
@@ -177,7 +177,7 @@ SpaceBeforeParens:	ControlStatements
 # 在空的圆括号中添加空格
 SpaceInEmptyParentheses:	false
 # 在尾随的评论前添加的空格数(只适用于//)
-SpacesBeforeTrailingComments:	2
+SpacesBeforeTrailingComments:	1
 # 在尖括号的<后和>前添加空格
 SpacesInAngles:	false
 # 在容器(ObjC和JavaScript的数组和字典等)字面量中添加空格
