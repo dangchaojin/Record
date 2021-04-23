@@ -1,0 +1,37 @@
+https://blog.csdn.net/N1314N/article/details/94652368?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
+
+
+C11的特性（智能指针、anto等等）
+
+1、智能指针:
+auto_ptr, unique_ptr,shared_ptr, weak_ptr   后三是C++11支持，第一个已经被C++11弃用。
+（auto_ptr的资源维护动作是以inline的方式来完成的，在编译时代码会被扩展开来，所以使用它并不会牺牲效率。缺点：auto_ptr对象不可作为STL容器的元素；auto_ptr缺少对动态配置而来的数组的支持，如果用它来管理这些数组，结果是可怕的、不可预期的）
+
+智能指针是一个类，当超出了类的实例对象的作用域时，会自动调用对象的析构函数，析构函数会自动释放资源。所以智能指针的作用原理就是在函数结束时自动释放内存空间，不需要手动释放内存空间。
+
+shared_ptr,它采用引用计数的方法，记录当前内存资源被多少个智能指针引用。该引用计数的内存在堆上分配。当新增一个时引用计数加1，当过期时引用计数减一。只有引用计数为0时，智能指针才会自动释放引用的内存资源。
+	use_count 返回引用计数的个数
+	unique 返回是否是独占所有权( use_count 为 1)
+	swap 交换两个 shared_ptr 对象(即交换所拥有的对象)
+	reset 放弃内部对象的所有权或拥有对象的变更, 会引起原有对象的引用计数的减少
+	get 返回内部对象(指针), 由于已经重载了()方法, 因此和直接使用对象是一样的.
+
+注意1：Smart_ptr<T>不同于T*
+Smart_ptr<T>的真实身份其实是一个对象，一个管理动态配置对象的对象，而T*是指向T类型对象的一个指针，所以不能盲目地将一个T*和一个智能指针类型Smart_ptr<T>相互转换。
+在创建一个智能指针的时候需要明确Smart_ptr<T> tPtr<new T>等。禁止将T*赋值给一个智能指针。不能采用tPtr = NULL的方式将tPtr置空，应该使用智能指针类的成员函数。
+
+注意2：使用std::move
+不论是shared_ptr还是unique_ptr，使用std::move转移之后，所管理的指针是空指针。
+
+
+
+
+
+
+2、std::move
+将一个左值强制转化为右值引用，继而可以通过右值引用使用该值，以用于移动语义。从实现上讲，std::move基本等同于一个类型转换：static_cast<T&&>(lvalue);
+
+注意1: C++ 标准库使用比如vector::push_back 等这类函数时,会对参数的对象进行复制,连数据也会复制.这就会造成对象内存的额外创建, 本来原意是想把参数push_back进去就行了,通过std::move，可以避免不必要的拷贝操作。
+注意2: std::move是将对象的状态或者所有权从一个对象转移到另一个对象，只是转移，没有内存的搬迁或者内存拷贝所以可以提高利用效率,改善性能。
+注意3: 对指针类型的标准库对象并不需要这么做。
+注意4: 原value值被move之后值被转移，比如string被转移之后为空字符串，智能指针被转移之后所管理的也是空指针。
