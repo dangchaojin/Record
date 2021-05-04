@@ -2,6 +2,13 @@
 #include <string>
 #include <sstream>
 
+string ReturnEmptyString()
+{
+    return str;
+    return "";
+    return string();
+}
+
 int main()
 {
 	//按特定字符分割1:
