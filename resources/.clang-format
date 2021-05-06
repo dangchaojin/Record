@@ -52,7 +52,7 @@ BinPackParameters:	true
 # 大括号换行，只有当BreakBeforeBraces设置为Custom时才有效
 BraceWrapping:   
   # class定义后面
-  AfterClass:	false
+  AfterClass: false
   # 控制语句后面
   AfterControlStatement:	false
   # enum定义后面
@@ -60,7 +60,7 @@ BraceWrapping:
   # 函数定义后面
   AfterFunction:	true
   # 命名空间定义后面
-  AfterNamespace:	false
+  AfterNamespace: false
   # ObjC定义后面
   AfterObjCDeclaration:	false
   # struct定义后面
@@ -97,10 +97,10 @@ BreakBeforeInheritanceComma: false
 
 BreakInheritanceList: BeforeComma
 BreakAfterJavaFieldAnnotations: true
-BreakStringLiterals: false
+BreakStringLiterals: true
 
 # 每行字符数量的限制，0表示没有限制
-ColumnLimit: 120
+ColumnLimit:  120
 
 # 描述具有特殊意义的注释的正则表达式，它不应该被分割为多行或以其它方式改变
 CommentPragmas:	'^ NOLINT'
