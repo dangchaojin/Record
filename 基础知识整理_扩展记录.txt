@@ -82,7 +82,8 @@ for each (auto tt in test) { std::cout << tt.second << std::endl; }
 
 （3）利用增强型for循环：
 for (auto iter : test) { std::cout << iter.second << std::endl; }
-for(auto a:b)中b为一个容器，效果是利用a遍历并获得b容器中的每一个值，但是(对a操作)a无法影响到b容器中的元素。
+
+for(auto a:b)中b为一个容器，效果是利用a遍历并获得b容器中的每一个值，但是对a操作无法影响到b容器中的元素。
 for(auto &a:b)中加了引用符号，可以对容器中的内容进行赋值，即可通过对a赋值来做到容器b的内容修改填充。
 
 （4）如果是vector容器，可以直接采用下表访问
