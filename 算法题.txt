@@ -59,7 +59,11 @@ for(int i = 0; i < n -1; i++) {
 9、通用二元一次方程函数（模板？）
 
 10、c++的STL中，有哪几种容器？底层实现(底层数据结构)？应用场景？
-vector、list、map(multimap)、set(multiset)、deque、queue、stack
+(1)、标准STL序列容器：vector、string、deque和list；
+(2)、标准STL关联容器：set、multiset、map和multimap；
+(3)、非标准序列容器：slist(单向链表)和rope(重型字符串)；
+(4)、非标准关联容器：hash_set、hash_multiset、hash_map和hash_multimap；
+(5)、标准非STL容器：数组、bitset、valarray、stack、queue和priority_queue
 
 vector(动态扩容数组)：连续存储的元素
 list(双向链表)：由节点组成的双向链表，每个结点包含着一个元素
