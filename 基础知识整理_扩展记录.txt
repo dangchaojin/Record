@@ -71,6 +71,25 @@ main(void)
 
 
 
+c++遍历容器的几种方式：
+（1）利用迭代器：
+for (std::map<int, std::string>::iterator iter = test.begin(); iter != test.end(); iter++) { std::cout << iter->second << std::endl; }
+for (auto iter = test.begin(); iter != test.end(); iter++) { std::cout << iter->second << std::endl; }
+
+（2）利用for each语法：
+for each (std::pair<int, std::string> tt in test) { std::cout << tt.second << std::endl; }
+for each (auto tt in test) { std::cout << tt.second << std::endl; }
+
+（3）利用增强型for循环：
+for (auto iter : test) { std::cout << iter.second << std::endl; }
+for(auto a:b)中b为一个容器，效果是利用a遍历并获得b容器中的每一个值，但是(对a操作)a无法影响到b容器中的元素。
+for(auto &a:b)中加了引用符号，可以对容器中的内容进行赋值，即可通过对a赋值来做到容器b的内容修改填充。
+
+（4）如果是vector容器，可以直接采用下表访问
+
+
+
+
 结构体跟联合体        参考：https://blog.csdn.net/firefly_2002/article/details/7954458?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
 union u
 {
