@@ -27,3 +27,9 @@ do
 			sed -i "s/\<$old\>/$new/g" $file
 		done
 done
+
+
+# sed -i 's/allowed_hosts=127.0.0.1/&,192.168.53.25/' nrpe.cfg
+# 通过-i表示直接对文件进行操作s表示替换通过&+字符串,来实现将新的字符串增加到找到得字符串的后面.
+# sed -i 's/allowed_hosts=127.0.0.1/&,192.168.53.25/g' nrpe.cfg
+# 通过g参数将文档中所有满足的字符串后面都加上新的字符串

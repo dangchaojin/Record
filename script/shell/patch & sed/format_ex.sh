@@ -1,6 +1,6 @@
 #!/bin/sh
 
-patchname='core_service_format.patch'
+patchname='cs_format.patch'
 filename='interfaces/kits/js/napi/network_search/src/napi_radio.cpp'
 echo ${filename}
 
@@ -12,7 +12,8 @@ line1=`echo ${line} |cut -d' ' -f1`
 line2=`echo ${line} |cut -d' ' -f2`
 echo line1 ${line1} line2 ${line2}
 
-start1=`cat ${filename} | grep -n "DECLARE_NAPI_FUNCTION(\"getRadioTech\", GetRadioTech)" |cut -d: -f1`
+start1=`find . -name *.cpp |xargs grep -n "DECLARE_NAPI_FUNCTION(\"getRadioTech\", GetRadioTech)" |cut -d: -f2`
+#start1=`cat ${filename} | grep -n "DECLARE_NAPI_FUNCTION(\"getRadioTech\", GetRadioTech)" |cut -d: -f1`
 if  [ ! -n "$start1" ] ;then
     echo "its empty!"
     start1=1
@@ -66,7 +67,6 @@ sed -i ''${line2}'s#+\([0-9]\+\)#+'${end2}'#1' ${patchname}
 
 #######################################################################################################################
 
-patchname='core_service_format.patch'
 filename='interfaces/kits/js/napi/sim/src/napi_sim.cpp'
 echo ${filename}
 
@@ -103,7 +103,6 @@ sed -i ''${line2}'s#+\([0-9]\+\)#+'${end2}'#1' ${patchname}
 
 #######################################################################################################################
 
-patchname='core_service_format.patch'
 filename='interfaces/kits/js/napi/sim/src/napi_sim.cpp'
 echo ${filename}
 
@@ -135,7 +134,6 @@ sed -i ''${line2}'s#+\([0-9]\+\)#+'${end2}'#1' ${patchname}
 
 #######################################################################################################################
 
-#patchname='core_service_format.patch'
 #filename='network_search/src/network_register.cpp'
 #echo ${filename}
 
@@ -159,7 +157,6 @@ sed -i ''${line2}'s#+\([0-9]\+\)#+'${end2}'#1' ${patchname}
 
 #######################################################################################################################
 
-patchname='core_service_format.patch'
 filename='network_search/src/network_search_state.cpp'
 echo ${filename}
 
@@ -335,7 +332,6 @@ sed -i ''${line1}'s#+\([0-9]\+\)#+'${end1}'#1' ${patchname}
 
 #######################################################################################################################
 
-patchname='core_service_format.patch'
 filename='sim/include/sim_file.h'
 echo ${filename}
 
