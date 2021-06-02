@@ -10,6 +10,8 @@
 echo "formating..."
 
 find . -name *.cpp -o -name *.h -o -name *.c | xargs ./clang-format -style=file -i
+#find ./ -path "./vendor" -prune -type f -o -name *.cpp -o -name *.h -o -name *.c           #排除某个目录
+#find . \(  -path "./vendor" -o -path "./test"  \)  -prune -type f -o -name *.cpp -o -name *.h -o -name *.c         #排除多个目录
 
 echo "format complete"
 echo "please check the code specification again!"
