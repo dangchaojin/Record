@@ -21,6 +21,7 @@ fi
 
 offset=22
 start2=`expr ${start1} + ${offset}`
+# start2=$[ start1 + offset ]
 
 offset1=0
 offset2=1
