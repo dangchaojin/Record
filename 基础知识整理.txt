@@ -386,7 +386,28 @@ pin a, b;
 
 
 
+31、野指针、指针悬挂   （指针指向了一块随机的空间，不受程序控制）
+	野指针：访问一个已销毁或者访问受限的内存区域的指针，野指针不能判断是否为NULL来避免
+	垂悬指针：指针正常初始化，曾指向一个对象，该对象被销毁了，但是指针未制空，那么就成了悬空指针。
 
+产生原因：
+	a.指针定义时未被初始化：指针在被定义的时候，如果程序不对其进行初始化的话，它会随机指向一个区域，因为任意指针变量（出了static修饰的指针）它的默认值都是随机的
+	b.指针 p 被 free 或者 delete 之后，没有进行置空或者其他赋值操作 (指针悬挂，实际也是野指针)
+	c.指针操作超越变量作用域：不要返回指向栈内存的指针或者引用，因为栈内存在函数结束的时候会被释放。
+
+规避方法：
+	a.初始化指针的时候将其置为nullptr，之后对其操作。
+	b.释放指针的时候将其置为nullptr。
+	c.在变量的作用域结束前释放掉变量的地址空间并且让指针指向NULL。
+
+
+
+https://blog.csdn.net/ShanYu1198124123/article/details/52414392?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-2.nonecase
+32、内存泄漏memory leak、内存溢出out of memory
+内存泄漏:程序中已动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。
+检测内存泄露的基本原理: 内存泄露一般指的是堆内存的泄露。检测内存泄露的关键是能截获对分配内存和释放内存的函数的调用。通过截获的这两个函数，我们就能跟踪每一块内存的生命周期。每当成功分配一块内存时，就把它的指针加入一个全局的内存链中；每当释放一块内存时，再把它的指针从内存链中删除。这样当程序运行结束的时候，内存链中剩余的指针就会指向那些没有被释放的内存。
+
+内存溢出:要求分配的内存超出了系统能给你的，系统不能满足需求，于是产生溢出。 
 
 
 
@@ -503,6 +524,14 @@ z、
 
 
 
+44、查bug思路
+	a.检测内存泄露的基本原理: 内存泄露一般指的是堆内存的泄露。检测内存泄露的关键是能截获对分配内存和释放内存的函数的调用。通过截获的这两个函数，我们就能跟踪每一块内存的生命周期。每当成功分配一块内存时，就把它的指针加入一个全局的内存链中；每当释放一块内存时，再把它的指针从内存链中删除。这样当程序运行结束的时候，内存链中剩余的指针就会指向那些没有被释放的内存。
+
+
+
+
+
+
 https://blog.csdn.net/N1314N/article/details/94652368?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
 
 https://blog.csdn.net/qq_42627619/article/details/91046831
@@ -539,13 +568,7 @@ https://blog.csdn.net/qq_42627619/article/details/91046831
 
 、epoll和select的区别是什么？epoll高效率的原因是什么？（分别适用在什么应用场景）
 
-、野指针   内存泄漏    指针悬挂      （分别是什么？代表什么？怎么造成？怎么避免解决？）
-（多个指针指向一块内存，free掉一个指针之后，别的指针就成了野指针？）
 
-
-、查bug思路
-
-检测内存泄露的基本原理: 内存泄露一般指的是堆内存的泄露。检测内存泄露的关键是能截获对分配内存和释放内存的函数的调用。通过截获的这两个函数，我们就能跟踪每一块内存的生命周期。每当成功分配一块内存时，就把它的指针加入一个全局的内存链中；每当释放一块内存时，再把它的指针从内存链中删除。这样当程序运行结束的时候，内存链中剩余的指针就会指向那些没有被释放的内存。
 
 
 、linux常用命令
