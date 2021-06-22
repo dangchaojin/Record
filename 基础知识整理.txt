@@ -404,14 +404,22 @@ pin a, b;
 
 https://blog.csdn.net/ShanYu1198124123/article/details/52414392?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-2.nonecase
 32、内存泄漏memory leak、内存溢出out of memory
+内存溢出:要求分配的内存超出了系统能给你的，系统不能满足需求，于是产生溢出。
 内存泄漏:程序中已动态分配的堆内存由于某种原因程序未释放或无法释放，造成系统内存的浪费，导致程序运行速度减慢甚至系统崩溃等严重后果。
 检测内存泄露的基本原理: 内存泄露一般指的是堆内存的泄露。检测内存泄露的关键是能截获对分配内存和释放内存的函数的调用。通过截获的这两个函数，我们就能跟踪每一块内存的生命周期。每当成功分配一块内存时，就把它的指针加入一个全局的内存链中；每当释放一块内存时，再把它的指针从内存链中删除。这样当程序运行结束的时候，内存链中剩余的指针就会指向那些没有被释放的内存。
 
-内存溢出:要求分配的内存超出了系统能给你的，系统不能满足需求，于是产生溢出。 
 
 
+32、strcpy、sprintf、memcpy
+（1）操作对象不同，strcpy的两个操作对象均为字符串，sprintf的操作源对象可以是多种数据类型，目的操作对象是字符串，memcpy的两个对象就是两个任意可操作的内存地址，并不限于何种数据类型。
+（2）执行效率不同，memcpy 最高，strcpy 次之，sprintf 的效率最低。
+（3）实现功能不同，strcpy 主要实现字符串变量间的拷贝，sprintf主要实现其他数据类型格式到字符串的转化，memcpy主要是内存块间的拷贝。
+说明：strcpy、sprintf与memcpy都可以实现拷贝的功能，但是针对的对象不同，根据实际需求，来选择合适的函数实现拷贝功能。
 
 
+33、C++的空类有哪些成员函数
+	缺省构造函数、缺省拷贝构造函数、缺省析构函数、缺省赋值运算符、缺省取址运算符、缺省取址运算符const
+注意：有些书上只是简单的介绍了前四个函数。没有提及后面这两个函数。但后面这两个函数也是空类的默认函数。另外需要注意的是，只有当实际使用这些函数的时候，编译器才会去定义它们。
 
 
 

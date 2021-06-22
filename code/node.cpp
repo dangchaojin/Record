@@ -1,5 +1,9 @@
 #include <cstdlib>
+#include <cstring>
 #include <iostream>
+#include <map>
+#include <regex>
+#include <string>
 
 typedef int DataType;
 struct Node {
@@ -10,14 +14,15 @@ struct Node {
 void Display(Node *p)
 {
     while (p) {
-        std::cout << p->data << std::endl;
+        std::cout << p->data << " ";
         p = p->next;
     }
+    std::cout << std::endl;
 }
 
 void DelSameNode(Node *head)
 {
-    Node *p, *q, *s;    // s是位置标记的作用
+    Node *p, *q, *s;  // s是位置标记的作用
     p = head;
     while (p != nullptr && p->next != nullptr) {
         s = p;
@@ -34,6 +39,35 @@ void DelSameNode(Node *head)
         }
         p = p->next;
     }
+}
+
+Node *reverse1(Node *n)
+{
+    if (n == nullptr) {
+        return nullptr;
+    }
+
+    Node *old = n;
+    Node *tmp = nullptr;
+
+    Node *cur = old->next;
+    old->next = nullptr;
+
+    while (cur != nullptr) {
+        tmp = cur->next;
+        cur->next = old;
+        old = cur;
+        cur = tmp;
+    }
+    return old;
+}
+
+Node *reverse2(Node *oldList, Node *newHead = NULL)
+{
+    Node *next = oldList->next;  //记录上次翻转后的链表
+    oldList->next = newHead;  //将当前结点插入到翻转后链表的开头
+    newHead = oldList;  //递归处理剩余的链表
+    return (next == NULL) ? newHead : reverse2(next, newHead);
 }
 
 int main()
@@ -56,13 +90,26 @@ int main()
     list4->next = list5;
     list5->next = nullptr;
 
-    std::cout << "first" << std::endl;
-    Display(list1);
+    // std::cout << "delete same number:" << std::endl;
+    // std::cout << "first: ";
+    // Display(list1);
+    // DelSameNode(list1);
+    // std::cout << "second: ";
+    // Display(list1);
 
-    DelSameNode(list1);
-
-    std::cout << "second" << std::endl;
+    std::cout << "reverse1 Node:" << std::endl;
+    std::cout << "first: ";
     Display(list1);
+    Node *reverseList = reverse1(list1);
+    std::cout << "second: ";
+    Display(reverseList);
+	
+    std::cout << "reverse2 Node:" << std::endl;
+    std::cout << "first: ";
+    Display(list1);
+    Node *reverseList = reverse2(list1);
+    std::cout << "second: ";
+    Display(reverseList);
 
     system("pause");
     return 0;
