@@ -75,6 +75,37 @@ for(int i = 0; i < n -1; i++) {
 
 
 
+10、写一个判定任意二进制树height的程序
+学习二叉树！
+并判断以下算法是否可以计算任意二叉树的深度？
+
+int depth(BiTree T) 
+{ 
+	if(!T) return 0;  	 	 	 	 	//判断当前结点是否为叶子结点 
+	int d1= depth(T->lchild);  	 	 	//求当前结点的左孩子树的深度 
+	int d2= depth(T->rchild);   	 	//求当前结点的右孩子树的深度 
+	
+	return (d1>d2?d1:d2)+1;
+}
+
+
+
+11、编码实现某一变量某位清 0 或置 1
+给定一个整型变量 a，写两段代码，第一个设置 a 的 bit 3，第二个清 a 的 bit 3，在以上两个操作中，要保持其他位不变。
+#define BIT3 (0x1 << 3 )
+
+void set_bit3()   //设置 a 的 bit 3
+{
+	a |= BIT3;    //将 a 第 3 位置 1
+}
+
+void clear_bit3()   //清 a 的 bit 3	
+{ 
+ 	a &= ~BIT3;     //将 a 第 3 位清零 	 	 	 
+}
+
+
+
 
 https://blog.csdn.net/Windgs_YF/article/details/82115425
 https://blog.csdn.net/lym940928/article/details/88377649
@@ -107,7 +138,6 @@ stack()：后进先出的值的排列
 设计栈  入栈  出栈  找最小元素
 设计string  成员
 编写简单的回显函数
-写一个判定任意二进制树height的程序
 图像边缘检测原理
 
 vector可先用resize申请空间，不用等到要用时由自身申请（速度慢）
