@@ -1,0 +1,86 @@
+diff --git a/interfaces/kits/js/napi/network_search/src/napi_radio.cpp b/interfaces/kits/js/napi/network_search/src/napi_radio.cpp
+index b9d90b3..f2fb910 100644
+--- a/interfaces/kits/js/napi/network_search/src/napi_radio.cpp
++++ b/interfaces/kits/js/napi/network_search/src/napi_radio.cpp
+@@ -492 +492,2 @@ napi_value InitNapiRadioNetwork(napi_env env, napi_value exports)
+-    napi_property_descriptor desc[] = {DECLARE_NAPI_FUNCTION("getRadioTech", GetRadioTech),
++    napi_property_descriptor desc[] = {
++        DECLARE_NAPI_FUNCTION("getRadioTech", GetRadioTech),
+@@ -514 +515,2 @@ napi_value InitNapiRadioNetwork(napi_env env, napi_value exports)
+-        DECLARE_NAPI_STATIC_PROPERTY("NETWORK_TYPE_NR", netWorkTypeNr)};
++        DECLARE_NAPI_STATIC_PROPERTY("NETWORK_TYPE_NR", netWorkTypeNr)
++    };
+@@ -520 +522,2 @@ EXTERN_C_END
+-static napi_module _radioModule = {.nm_version = 1,
++static napi_module _radioModule = {
++    .nm_version = 1,
+@@ -526 +529,2 @@ static napi_module _radioModule = {.nm_version = 1,
+-    .reserved = {0}};
++    .reserved = {0}
++};
+diff --git a/interfaces/kits/js/napi/sim/src/napi_sim.cpp b/interfaces/kits/js/napi/sim/src/napi_sim.cpp
+index 79a9090..0604d48 100644
+--- a/interfaces/kits/js/napi/sim/src/napi_sim.cpp
++++ b/interfaces/kits/js/napi/sim/src/napi_sim.cpp
+@@ -414 +414,2 @@ napi_value InitNapiSim(napi_env env, napi_value exports)
+-    napi_property_descriptor desc[] = {DECLARE_NAPI_FUNCTION("getISOCountryCodeForSim", GetIsoCountryCodeForSim),
++    napi_property_descriptor desc[] = {
++        DECLARE_NAPI_FUNCTION("getISOCountryCodeForSim", GetIsoCountryCodeForSim),
+@@ -422 +423,2 @@ napi_value InitNapiSim(napi_env env, napi_value exports)
+-        DECLARE_NAPI_STATIC_PROPERTY("SIM_STATE_LOADED", simStateLoaded)};
++        DECLARE_NAPI_STATIC_PROPERTY("SIM_STATE_LOADED", simStateLoaded)
++    };
+@@ -428 +430,2 @@ EXTERN_C_END
+-static napi_module _simModule = {.nm_version = 1,
++static napi_module _simModule = {
++    .nm_version = 1,
+@@ -434 +437,2 @@ static napi_module _simModule = {.nm_version = 1,
+-    .reserved = {0}};
++    .reserved = {0}
++};
+diff --git a/network_search/src/network_search_state.cpp b/network_search/src/network_search_state.cpp
+index 2675ce1..5b92293 100644
+--- a/network_search/src/network_search_state.cpp
++++ b/network_search/src/network_search_state.cpp
+@@ -40 +40 @@ NetworkSearchState &NetworkSearchState::operator=(const NetworkSearchState &stat
+-            static_cast<const void *>(state.networkType_.get()), sizeof(NetworkType)) != 0) {
++        static_cast<const void *>(state.networkType_.get()), sizeof(NetworkType)) != 0) {
+@@ -44 +44 @@ NetworkSearchState &NetworkSearchState::operator=(const NetworkSearchState &stat
+-            static_cast<const void *>(state.networkState_.get()), sizeof(NetworkState)) != 0) {
++        static_cast<const void *>(state.networkState_.get()), sizeof(NetworkState)) != 0) {
+@@ -57 +57 @@ void NetworkSearchState::SetOperatorInfo(const std::string &longName, const std:
+-                static_cast<const void *>(longName.c_str()), NETWORK_MAX_FULL_NAME_LEN) != 0) {
++            static_cast<const void *>(longName.c_str()), NETWORK_MAX_FULL_NAME_LEN) != 0) {
+@@ -62 +62 @@ void NetworkSearchState::SetOperatorInfo(const std::string &longName, const std:
+-                static_cast<const void *>(shortName.c_str()), NETWORK_MAX_NAME_LEN) != 0) {
++            static_cast<const void *>(shortName.c_str()), NETWORK_MAX_NAME_LEN) != 0) {
+@@ -67 +67 @@ void NetworkSearchState::SetOperatorInfo(const std::string &longName, const std:
+-                static_cast<const void *>(numeric.c_str()), NETWORK_MAX_PLMN_LEN) != 0) {
++            static_cast<const void *>(numeric.c_str()), NETWORK_MAX_PLMN_LEN) != 0) {
+@@ -73 +73 @@ void NetworkSearchState::SetOperatorInfo(const std::string &longName, const std:
+-                static_cast<const void *>(longName.c_str()), NETWORK_MAX_FULL_NAME_LEN) != 0) {
++            static_cast<const void *>(longName.c_str()), NETWORK_MAX_FULL_NAME_LEN) != 0) {
+@@ -78 +78 @@ void NetworkSearchState::SetOperatorInfo(const std::string &longName, const std:
+-                static_cast<const void *>(shortName.c_str()), NETWORK_MAX_NAME_LEN) != 0) {
++            static_cast<const void *>(shortName.c_str()), NETWORK_MAX_NAME_LEN) != 0) {
+@@ -83 +83 @@ void NetworkSearchState::SetOperatorInfo(const std::string &longName, const std:
+-                static_cast<const void *>(numeric.c_str()), NETWORK_MAX_PLMN_LEN) != 0) {
++            static_cast<const void *>(numeric.c_str()), NETWORK_MAX_PLMN_LEN) != 0) {
+@@ -153 +153 @@ std::unique_ptr<NetworkState> NetworkSearchState::GetNetworkState()
+-            static_cast<const void *>(networkState_.get()), sizeof(NetworkState)) != 0) {
++        static_cast<const void *>(networkState_.get()), sizeof(NetworkState)) != 0) {
+@@ -169 +169 @@ std::unique_ptr<NetworkType> NetworkSearchState::GetNetworkType()
+-            static_cast<const void *>(networkType_.get()), sizeof(NetworkType)) != 0) {
++        static_cast<const void *>(networkType_.get()), sizeof(NetworkType)) != 0) {
+diff --git a/sim/include/sim_file.h b/sim/include/sim_file.h
+index 8d033b2..71f03bf 100644
+--- a/sim/include/sim_file.h
++++ b/sim/include/sim_file.h
+@@ -75 +75,2 @@ protected:
+-    const char *THREE_DIGITS_MNC_INCLUDED_IN_MCCMNC[MCCMNC_NUM] = {"302370", "302720", "310260", "405025",
++    const char *THREE_DIGITS_MNC_INCLUDED_IN_MCCMNC[MCCMNC_NUM] = {
++        "302370", "302720", "310260", "405025",
+@@ -90 +91,2 @@ protected:
+-        "405931", "405932", "502142", "502143", "502145", "502146", "502147", "502148"};
++        "405931", "405932", "502142", "502143", "502145", "502146", "502147", "502148"
++    };

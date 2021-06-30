@@ -1,14 +1,4 @@
-﻿/code/*
-!/code/*.cpp
-!/code/*.docx
-!/code/rule
-/code/rule/*
-!/code/rule/*.vcxproj
-!/code/rule/*.h
-!/code/rule/*.cpp
-!/code/rule/*.txt
-
-#/code/*.log
+﻿#/code/*.log
 #/code/*.dsp
 #/code/*.ncb
 #/code/*.plg
