@@ -5,6 +5,15 @@
 #include <regex>
 #include <string>
 
+/*
+
+Todo：插入
+
+*/
+
+
+
+
 typedef int DataType;
 struct Node {
     DataType data;

@@ -38,9 +38,9 @@ class BU
 	int *a;
 }bu;
 
-void func(char str[100])
+void func(char str[100])      //此处的str也是跟指针一样的字节数，实际上是str是指针，后面的100实际上是无用的！！！！！！
 {
-    cout << sizeof(str);      //此处的str也是跟指针一样的字节数，实际上是str是指针，后面的100实际上是无用的
+    cout << sizeof(str);
 }
 
 int main()
