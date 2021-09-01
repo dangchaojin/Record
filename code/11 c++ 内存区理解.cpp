@@ -24,7 +24,7 @@ void AA::Display()
 int main()
 {
     shared_ptr<AA> testA;
-    testA->Display();   // 应该指向代码区？所以运行不会报错？而有成员的时候会报错，是因为需要申请实际空间？
+    testA->Display();   // 应该指向代码区？所以运行不会报错？而有数据成员的时候会报错，是因为需要申请实际空间？
     cout << "test1" << endl;
 
     if (testA == nullptr) {

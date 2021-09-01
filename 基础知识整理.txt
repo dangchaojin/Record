@@ -653,6 +653,12 @@ https://blog.csdn.net/qq_42627619/article/details/91046831
 
 、makefile中的优先链接库项deng
 
+、使用学习（详情见PPT）
+静态告警：			PClint
+通用编程规范检查：	Codingstylecheck
+安全编程规范检查：	Codemars
+代码质量	圈复杂度：	sourcemonitor、Nsiq
+
 
 
 、讲一下堆与找的区别与联系（内存分配Heap和stack的区别）

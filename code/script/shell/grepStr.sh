@@ -12,6 +12,8 @@ sed 's/.*test//g' test.txt
 tr -d a-z0-9 < test.txt
 
 
+#匹配文件，替换对应的文本
+find . -name BUILD.gn |xargs sed -i 's#cesfwk_kits#cesfwk_innerkits#g'
 
 
 
