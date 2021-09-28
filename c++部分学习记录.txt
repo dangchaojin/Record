@@ -1,0 +1,57 @@
+1、断言
+// #define NDEBUG  关闭静态断言（放在assert.h前面可以关闭，放在后面关闭不了）
+include <assert.h>
+#ifdef DEBUG
+#define ASSERT(f) assert(f)
+#else
+#define ASSERT(f) ((void)0)
+#endif
+
+
+2、
+
+3、
+
+4、
+
+5、
+
+6、
+
+7、
+
+8、
+
+9、
+
+10、
+
+11、
+
+12、
+
+13、
+
+14、
+
+15、
+
+16、
+
+17、
+
+18、
+
+19、
+
+20、
+
+21、
+
+22、
+
+23、
+
+24、
+
+25、
