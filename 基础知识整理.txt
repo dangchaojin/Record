@@ -505,13 +505,19 @@ e、this并不是一个常规变量，而是个右值，所以不能取得this�
 
 
 
-38、typeid( 变量 ).name()   与   decltype( 变量 )  区别
-decltype与auto
+38、auto、decltype(exp)、typeid(exp).name()
+auto: 自动类型推导，编译器在编译时期会将auto替换为变量实际的类型。
+decltype:从一个变量或表达式中得到其类型
+typeid:用来获取一个表达式的类型信息
 
-C++ 可以用decltype获取变量类型, 用std::is_same_v判断是否是两个一样的类型
+auto和decltype都用来在编译时期进行自动类型推导。如果表达式的类型是类类型且至少包含有一个虚函数，typeid操作符返回表达式的动态类型需要在运行时计算，否则，typeid返回表达式的静态类型，在编译时就可以计算。
+auto根据=右边的初始值推导出变量的类型，而decltype根据表达式推导出变量的类型，跟=右边的初始值没有关系。所以auto要求变量必须初始化，而decltype不要求。
 
 http://c.biancheng.net/view/7151.html
 https://www.cnblogs.com/QG-whz/p/4952980.html
+https://blog.csdn.net/gatieme/article/details/50947821
+
+模板类型判断需要，可用std::is_same_v判断是否是两个一样的类型      可参考：https://blog.csdn.net/czyt1988/article/details/52812797
 
 
 39、
