@@ -505,11 +505,17 @@ e、this并不是一个常规变量，而是个右值，所以不能取得this�
 
 
 
-38、
+38、typeid( 变量 ).name()   与   decltype( 变量 )  区别
+decltype与auto
+
+C++ 可以用decltype获取变量类型, 用std::is_same_v判断是否是两个一样的类型
+
+http://c.biancheng.net/view/7151.html
+https://www.cnblogs.com/QG-whz/p/4952980.html
 
 
 39、
-
+const IMSConnectionMap *const IMSControl::GetConnectionMap() const      各个const啥意思
 
 
 40、
