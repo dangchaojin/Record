@@ -18,14 +18,14 @@ find . -name BUILD.gn |xargs sed -i 's#cesfwk_kits#cesfwk_innerkits#g'
 
 
 
+#匹配对应的目录（文件）并删除
+find . -name "telephony"  | xargs rm -rf
+find . -name "netmanager_standard"  | xargs rm -rf
 
 
 
 
-
-
-
-
+git log --since=2021-10-01 --until=2021-10-31 --author=dangchaojin --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2; total += $1 + $2 } END { printf "  新增代码行: %s\n  移除代码行: %s\n  总增加代码行: %s\n  总修改代码行: %s\n", add, subs, loc, total }'
 
 
 
