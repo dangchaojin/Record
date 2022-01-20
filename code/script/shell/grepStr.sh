@@ -16,6 +16,9 @@ tr -d a-z0-9 < test.txt
 find . -name BUILD.gn |xargs sed -i 's#cesfwk_kits#cesfwk_innerkits#g'
 
 
+grep匹配多个str
+ps -A | grep -E "tel|ril"
+
 
 
 #匹配对应的目录（文件）并删除

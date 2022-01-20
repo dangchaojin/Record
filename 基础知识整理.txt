@@ -516,14 +516,14 @@ http://c.biancheng.net/view/7151.html
 https://www.cnblogs.com/QG-whz/p/4952980.html
 https://blog.csdn.net/gatieme/article/details/50947821
 
-模板类型判断需要，可用std::is_same_v判断是否是两个一样的类型      可参考：https://blog.csdn.net/czyt1988/article/details/52812797
+模板类型判断需要，可用std::is_same判断是否是两个一样的类型      可参考：https://blog.csdn.net/czyt1988/article/details/52812797
 
 
 39、
 const IMSConnectionMap *const IMSControl::GetConnectionMap() const      各个const啥意思
 
 
-40、
+40、std::string &&name = Str16ToStr8(item->GetName());   为啥要右值引用??
 
 
 41、
@@ -669,6 +669,9 @@ x、
 y、
 z、
 
+
+emplace_back和push_back
+在大多数情况下应该优先使用emplace_back来代替push_back。所有的标准库容器（array除外，因为它的长度不可改变，不能插入元素）都增加了类似的方法：emplace、emplace_hint、emplace_front、emplace_after和 emplace_back
 
 
 
