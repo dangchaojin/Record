@@ -105,3 +105,41 @@ int main()
 
     return 0;
 }
+
+
+**************************************************************************************************************************
+
+
+template<class T>
+struct Node
+{
+        Node(T data = T()):_data(data){}
+        ~Node()
+        {
+                cout << "Call ~Node()" << endl;
+        }
+
+        //shared_ptr<Node> Pnext = nullptr; // 结合下面使用会循环引用，导致内存泄露
+        //shared_ptr<Node> Ppre = nullptr;
+        weak_ptr<Node> Pnext;
+        weak_ptr<Node> Ppre;
+        T _data;
+};
+
+void testShared_Weak()
+{
+        shared_ptr<Node<int>> sp1(new Node<int>(1));
+        shared_ptr<Node<int>> sp2(new Node<int>(2));
+        cout << sp1.use_count() << endl;
+        cout << sp2.use_count() << endl;
+        sp1->Pnext = sp2;
+        sp2->Ppre = sp1;
+        cout << sp1.use_count() << endl;
+        cout << sp2.use_count() << endl;
+}
+
+int main()
+{
+        testShared_Weak();
+        return 0;
+}
